@@ -9,5 +9,5 @@ headers:
 
 env:
   # The public ngrok URL tunnel pointing to your local Ruby API
-  - variable: RUBY_API_URL
-    value: "https://4f3a-181-53-99-105.ngrok-free.app/api/v1/waitlist"
+  - name: RUBY_API_URL
+    value: "https://2b7c-181-53-99-105.ngrok-free.app/api/v1/waitlist"
