@@ -1,0 +1,13 @@
+{
+  "apphosting": {
+    "backendId": "zeepod-landing",
+    "rootDir": "/",
+    "ignore": [
+      "node_modules",
+      ".git",
+      ".next",
+      "firebase-debug.log",
+      "firebase-debug.*.log"
+    ]
+  }
+}
