@@ -186,9 +186,18 @@ export function SecurityEscrow({ lang = "es" }: { lang?: LangType }) {
                   <div className="flex-1">
                     <h3 className="font-display font-bold text-foreground text-base sm:text-lg">{pillar.title}</h3>
                     {isActive && (
-                      <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground transition-all duration-500">
-                        {pillar.description}
-                      </p>
+                      <div className="mt-2 space-y-4">
+                        <p className="text-pretty text-sm leading-relaxed text-muted-foreground transition-all duration-500">
+                          {pillar.description}
+                        </p>
+                        {/* Render SVG inside the active card on mobile/tablet */}
+                        <div className="lg:hidden w-full max-w-[240px] aspect-square mx-auto rounded-2xl border border-border bg-card/50 p-4 flex items-center justify-center overflow-hidden relative">
+                          <div className="absolute inset-0 bg-gradient-to-tr from-zeep-purple/5 to-zeep-cyan/5 pointer-events-none" />
+                          <div className="size-full flex items-center justify-center">
+                            {pillar.svg}
+                          </div>
+                        </div>
+                      </div>
                     )}
                   </div>
                 </button>
@@ -196,8 +205,8 @@ export function SecurityEscrow({ lang = "es" }: { lang?: LangType }) {
             })}
           </div>
 
-          {/* Right: SVG animations window */}
-          <div className="flex justify-center items-center">
+          {/* Right: SVG animations window for Desktop */}
+          <div className="hidden lg:flex justify-center items-center">
             <div className="relative size-72 sm:size-80 rounded-[2.5rem] border border-border bg-card shadow-lg p-8 flex items-center justify-center overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-tr from-zeep-purple/5 to-zeep-cyan/5 pointer-events-none" />
               {pillars[activePillar].svg}
