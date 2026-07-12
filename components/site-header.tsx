@@ -2,8 +2,18 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import { Menu, X, Instagram } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { translations, LangType } from "@/lib/translations"
+
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  )
+}
 
 export function SiteHeader({ lang = "es" }: { lang?: LangType }) {
   const [open, setOpen] = useState(false)
@@ -61,7 +71,7 @@ export function SiteHeader({ lang = "es" }: { lang?: LangType }) {
             className="flex items-center justify-center rounded-lg p-2 text-muted-foreground hover:bg-secondary hover:text-foreground transition-all duration-300"
             aria-label="Instagram"
           >
-            <Instagram className="size-4" />
+            <InstagramIcon className="size-4" />
           </a>
 
           <a
@@ -115,7 +125,7 @@ export function SiteHeader({ lang = "es" }: { lang?: LangType }) {
               onClick={() => setOpen(false)}
               className="mt-2 flex items-center justify-center gap-2 rounded-lg border border-border/60 py-2.5 text-center text-sm font-semibold text-muted-foreground hover:bg-secondary hover:text-foreground"
             >
-              <Instagram className="size-4" />
+              <InstagramIcon className="size-4" />
               <span>Instagram</span>
             </a>
             
