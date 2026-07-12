@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Instagram } from "lucide-react"
 import { translations, LangType } from "@/lib/translations"
 
 export function SiteHeader({ lang = "es" }: { lang?: LangType }) {
@@ -45,13 +45,23 @@ export function SiteHeader({ lang = "es" }: { lang?: LangType }) {
 
         <div className="hidden items-center gap-4 md:flex">
           {/* Language Selector */}
-          {/* Language Selector */}
           <a
             href={lang === "es" ? "/en" : "/"}
             className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold text-muted-foreground border border-border/60 hover:bg-secondary hover:text-foreground transition-all duration-300"
           >
             <span>{lang === "es" ? "🇺🇸" : "🇪🇸"}</span>
             <span>{lang === "es" ? "EN" : "ES"}</span>
+          </a>
+
+          {/* Social Links */}
+          <a
+            href="https://www.instagram.com/zeepod/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center rounded-lg p-2 text-muted-foreground hover:bg-secondary hover:text-foreground transition-all duration-300"
+            aria-label="Instagram"
+          >
+            <Instagram className="size-4" />
           </a>
 
           <a
@@ -95,6 +105,18 @@ export function SiteHeader({ lang = "es" }: { lang?: LangType }) {
             >
               <span>{lang === "es" ? "🇺🇸" : "🇪🇸"}</span>
               <span>{lang === "es" ? "English" : "Español"}</span>
+            </a>
+
+            {/* Mobile Instagram Social Link */}
+            <a
+              href="https://www.instagram.com/zeepod/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="mt-2 flex items-center justify-center gap-2 rounded-lg border border-border/60 py-2.5 text-center text-sm font-semibold text-muted-foreground hover:bg-secondary hover:text-foreground"
+            >
+              <Instagram className="size-4" />
+              <span>Instagram</span>
             </a>
             
             <a

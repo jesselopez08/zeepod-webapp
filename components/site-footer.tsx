@@ -29,10 +29,7 @@ function XIcon({ className }: { className?: string }) {
 }
 
 const baseSocials = [
-  { icon: InstagramIcon, href: "https://instagram.com/zeepod", label: "Instagram" },
-  { icon: FacebookIcon, href: "https://facebook.com/zeepod", label: "Facebook" },
-  { icon: XIcon, href: "https://twitter.com/zeepod", label: "Twitter" },
-  { icon: Globe, href: "https://www.zeepod.io", label: "Website" },
+  { icon: InstagramIcon, href: "https://www.instagram.com/zeepod/", label: "Instagram" },
 ]
 
 export function SiteFooter({ lang = "es" }: { lang?: LangType }) {
@@ -113,7 +110,7 @@ export function SiteFooter({ lang = "es" }: { lang?: LangType }) {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 text-sm text-muted-foreground sm:flex-row">
           <p>{t.copyright.replace("{year}", new Date().getFullYear().toString())}</p>
-          <p>www.zeepod.io</p>
+          <p>www.zeepodapp.com</p>
         </div>
       </div>
     </footer>
