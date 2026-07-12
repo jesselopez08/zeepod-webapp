@@ -14,7 +14,7 @@ export function SecurityEscrow({ lang = "es" }: { lang?: LangType }) {
       num: "01",
       title: t.pillars[0].title,
       description: t.pillars[0].desc,
-      colorClass: "border-zeep-purple text-zeep-purple bg-zeep-purple/5",
+      colorClass: "border-zeep-purple text-zeep-purple bg-zeep-purple-5",
       svg: (
         <svg viewBox="0 0 200 200" className="size-full animate-fade-in" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Background grid */}
@@ -55,7 +55,7 @@ export function SecurityEscrow({ lang = "es" }: { lang?: LangType }) {
       num: "02",
       title: t.pillars[1].title,
       description: t.pillars[1].desc,
-      colorClass: "border-zeep-cyan text-zeep-cyan bg-zeep-cyan/5",
+      colorClass: "border-zeep-cyan text-zeep-cyan bg-zeep-cyan-5",
       svg: (
         <svg viewBox="0 0 200 200" className="size-full animate-fade-in" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="100" cy="100" r="80" className="stroke-zeep-cyan/10" strokeWidth="2" strokeDasharray="4 4" />
@@ -89,7 +89,7 @@ export function SecurityEscrow({ lang = "es" }: { lang?: LangType }) {
       num: "03",
       title: t.pillars[2].title,
       description: t.pillars[2].desc,
-      colorClass: "border-zeep-orange text-zeep-orange bg-zeep-orange/5",
+      colorClass: "border-zeep-orange text-zeep-orange bg-zeep-orange-5",
       svg: (
         <svg viewBox="0 0 200 200" className="size-full animate-fade-in" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="100" cy="100" r="80" className="stroke-zeep-orange/10" strokeWidth="2" strokeDasharray="4 4" />
@@ -150,7 +150,7 @@ export function SecurityEscrow({ lang = "es" }: { lang?: LangType }) {
         
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-zeep-purple/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-zeep-purple">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-zeep-purple-15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-zeep-purple">
             <Lock className="size-3" /> {t.badge}
           </span>
           <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
@@ -172,7 +172,7 @@ export function SecurityEscrow({ lang = "es" }: { lang?: LangType }) {
                   key={pillar.num}
                   type="button"
                   onClick={() => setActivePillar(idx)}
-                  className={`w-full flex items-start gap-4 p-6 rounded-3xl border text-left transition-all duration-300 focus:outline-none ${
+                  className={`w-full flex items-start gap-4 p-6 rounded-3xl border text-left transition-all duration-300 focus:outline-none cursor-pointer ${
                     isActive
                       ? "border-border bg-card shadow-md scale-102"
                       : "border-border/40 hover:border-border bg-card/45"

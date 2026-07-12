@@ -26,18 +26,18 @@ const gallery = [
     locKey: "community",
     gridClass: "md:col-span-2 min-h-[240px] md:h-[300px]",
   },
-  {
-    image: "/Imagenes/Imagenes de influenciadores y lugares/G0298037.jpg",
-    tagKey: "community",
-    locKey: "community",
-    gridClass: "md:col-span-2 min-h-[240px] md:h-[300px]",
-  },
-  {
-    image: "/Imagenes/DSC_0474.jpg",
-    tagKey: "frontiers",
-    locKey: "destinations",
-    gridClass: "md:col-span-1 min-h-[240px] md:h-[300px]",
-  },
+  // {
+  //   image: "/Imagenes/Imagenes de influenciadores y lugares/G0298037.jpg",
+  //   tagKey: "community",
+  //   locKey: "community",
+  //   gridClass: "md:col-span-2 min-h-[240px] md:h-[300px]",
+  // },
+  // {
+  //   image: "/Imagenes/DSC_0474.jpg",
+  //   tagKey: "frontiers",
+  //   locKey: "destinations",
+  //   gridClass: "md:col-span-1 min-h-[240px] md:h-[300px]",
+  // },
 ]
 
 export function TravelGallery({ lang = "es" }: { lang?: LangType }) {

@@ -2,8 +2,13 @@
   "name": "my-project",
   "version": "0.1.0",
   "private": true,
+  "browserslist": [
+    "defaults",
+    "safari >= 14",
+    "ios_saf >= 14"
+  ],
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint ."

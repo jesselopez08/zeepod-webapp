@@ -130,157 +130,160 @@ export function CurrencyCalculator({ lang = "es" }: { lang?: LangType }) {
   const fromSymbol = getCurrencySymbol(fromCurrency)
 
   return (
-    <section id="calculadora" className="w-full bg-secondary/35 border-y border-border/40 py-12 lg:py-16">
+    <section id="calculadora" className="w-full bg-secondary/35 border-y border-border/40 py-10 lg:py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="rounded-[2.5rem] border border-border bg-card p-6 sm:p-10 lg:p-12 shadow-xl relative overflow-hidden">
+        <div className="rounded-[2.5rem] border border-border bg-card p-4 sm:p-10 lg:p-12 shadow-xl relative overflow-hidden">
         {/* Decorative lights */}
         <div className="absolute -left-12 -top-12 size-40 rounded-full bg-zeep-purple/10 blur-3xl pointer-events-none" />
         <div className="absolute -right-12 -bottom-12 size-40 rounded-full bg-zeep-cyan/10 blur-3xl pointer-events-none" />
 
-        <div className="relative z-10 grid gap-10 lg:grid-cols-[1.1fr_1fr] items-center">
+        <div className="relative z-10 grid gap-6 lg:gap-10 lg:grid-cols-[1.1fr_1fr] items-center">
           {/* Inputs Column */}
           <div>
-            <span className="inline-flex items-center gap-1 rounded-full bg-zeep-purple/15 px-3 py-1 text-xs font-semibold text-zeep-purple">
+            <span className="inline-flex items-center gap-1 rounded-full bg-zeep-purple-15 px-3 py-1 text-xs font-semibold text-zeep-purple">
               <Sparkles className="size-3" /> {lang === "en" ? "Real-time simulator" : "Simulador en tiempo real"}
             </span>
-            <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="mt-3 font-display text-2xl font-extrabold tracking-tight text-foreground sm:text-4xl">
               {t.title}
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
+            <p className="mt-2 text-xs sm:text-base text-muted-foreground leading-relaxed">
               {t.description}
             </p>
 
-            <div className="mt-8 space-y-4">
-              {/* Input Value */}
-              <div>
-                <label htmlFor="amount" className="block text-xs font-bold uppercase tracking-wider text-muted-foreground font-sans">
-                  {t.fromLabel}
-                </label>
-                <div className="relative mt-2 rounded-2xl border border-border bg-secondary/30 focus-within:border-zeep-purple/50 transition-colors">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg font-bold text-muted-foreground">
-                    {fromSymbol}
-                  </span>
-                  <input
-                    type="number"
-                    id="amount"
-                    value={amount}
-                    onChange={(e) => setAmount(parseFloat(e.target.value) || 0)}
-                    className="w-full bg-transparent py-4 pl-12 pr-28 text-lg font-extrabold text-foreground focus:outline-none"
-                    placeholder="0.00"
-                    min="1"
-                  />
-                  <div className="absolute right-2 top-1/2 -translate-y-1/2">
-                    <select
-                      value={fromCurrency}
-                      onChange={(e) => handleFromChange(e.target.value)}
-                      className="rounded-xl border border-border bg-card px-2 py-2 text-xs font-bold text-foreground focus:outline-none w-[90px] text-center cursor-pointer"
-                    >
-                      {currencyCodes.map((code) => (
-                        <option key={code} value={code}>
-                          {code}
-                        </option>
-                      ))}
-                    </select>
+            <div className="mt-6 flex gap-3 items-center">
+              {/* Stacked Inputs wrapper */}
+              <div className="flex-1 space-y-3">
+                {/* Input Value */}
+                <div>
+                  <label htmlFor="amount" className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground font-sans">
+                    {t.fromLabel}
+                  </label>
+                  <div className="relative mt-1.5 rounded-2xl border border-border bg-secondary/30 focus-within:border-zeep-purple/50 transition-colors">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-sm font-bold text-muted-foreground">
+                      {fromSymbol}
+                    </span>
+                    <input
+                      type="number"
+                      id="amount"
+                      value={amount}
+                      onChange={(e) => setAmount(parseFloat(e.target.value) || 0)}
+                      className="w-full bg-transparent py-3.5 pl-10 pr-28 text-base font-extrabold text-foreground focus:outline-none"
+                      placeholder="0.00"
+                      min="1"
+                    />
+                    <div className="absolute right-2 top-1/2 -translate-y-1/2">
+                      <select
+                        value={fromCurrency}
+                        onChange={(e) => handleFromChange(e.target.value)}
+                        className="rounded-xl border border-border bg-card px-2.5 py-2 text-xs font-bold text-foreground focus:outline-none w-[105px] text-left cursor-pointer truncate"
+                      >
+                        {currencyCodes.map((code) => (
+                          <option key={code} value={code}>
+                            {code} - {getCurrencyName(code, lang)}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
+                  <p className="mt-1.5 text-[10px] font-semibold text-muted-foreground/80 pl-1 leading-none">
+                    {getCurrencyName(fromCurrency, lang)}
+                  </p>
                 </div>
-                <p className="mt-1.5 text-xs font-semibold text-muted-foreground/80 pl-1 leading-none">
-                  {getCurrencyName(fromCurrency, lang)}
-                </p>
+
+                {/* Target Currency */}
+                <div>
+                  <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground font-sans">
+                    {t.toLabel}
+                  </label>
+                  <div className="relative mt-1.5 rounded-2xl border border-border bg-secondary/30">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-sm font-bold text-muted-foreground">
+                      {toSymbol}
+                    </span>
+                    <div className="w-full py-3.5 pl-10 pr-28 text-base font-extrabold text-foreground/50 select-none">
+                      {results.zeepod.toLocaleString()}
+                    </div>
+                    <div className="absolute right-2 top-1/2 -translate-y-1/2">
+                      <select
+                        value={toCurrency}
+                        onChange={(e) => handleToChange(e.target.value)}
+                        className="rounded-xl border border-border bg-card px-2.5 py-2 text-xs font-bold text-foreground focus:outline-none w-[105px] text-left cursor-pointer truncate"
+                      >
+                        {currencyCodes.map((code) => (
+                          <option key={code} value={code}>
+                            {code} - {getCurrencyName(code, lang)}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                  <p className="mt-1.5 text-[10px] font-semibold text-muted-foreground/80 pl-1 leading-none">
+                    {getCurrencyName(toCurrency, lang)}
+                  </p>
+                </div>
               </div>
 
-              {/* Swap Button divider */}
-              <div className="flex justify-center">
+              {/* Vertical Swap Button on the right (aligned with inputs, ignoring label differences) */}
+              <div className="flex-none pt-1">
                 <button
                   type="button"
                   onClick={handleSwap}
-                  className="flex size-11 items-center justify-center rounded-full border border-border bg-card text-muted-foreground shadow-sm transition-transform hover:scale-110 hover:text-zeep-purple focus:outline-none"
+                  className="flex size-11 items-center justify-center rounded-full border border-border bg-card text-muted-foreground shadow-md transition-transform hover:scale-110 active:scale-95 hover:text-zeep-purple focus:outline-none cursor-pointer"
                   aria-label="Intercambiar divisas"
                 >
-                  <ArrowLeftRight className="size-4 rotate-90 lg:rotate-0" />
+                  <ArrowLeftRight className="size-4 rotate-90" />
                 </button>
-              </div>
-
-              {/* Target Currency */}
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground font-sans">
-                  {t.toLabel}
-                </label>
-                <div className="relative mt-2 rounded-2xl border border-border bg-secondary/30">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg font-bold text-muted-foreground">
-                    {toSymbol}
-                  </span>
-                  <div className="w-full py-4 pl-12 pr-28 text-lg font-extrabold text-foreground/50 select-none">
-                    {results.zeepod.toLocaleString()}
-                  </div>
-                  <div className="absolute right-2 top-1/2 -translate-y-1/2">
-                    <select
-                      value={toCurrency}
-                      onChange={(e) => handleToChange(e.target.value)}
-                      className="rounded-xl border border-border bg-card px-2 py-2 text-xs font-bold text-foreground focus:outline-none w-[90px] text-center cursor-pointer"
-                    >
-                      {currencyCodes.map((code) => (
-                        <option key={code} value={code}>
-                          {code}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-                <p className="mt-1.5 text-xs font-semibold text-muted-foreground/80 pl-1 leading-none">
-                  {getCurrencyName(toCurrency, lang)}
-                </p>
               </div>
             </div>
             
-            <p className="mt-6 text-xs text-muted-foreground italic font-medium">
+            <p className="mt-4 text-[10px] text-muted-foreground italic font-medium">
               {t.estimationText}
             </p>
           </div>
 
           {/* Results Comparison Column */}
-          <div className="rounded-3xl border border-border bg-secondary/20 p-6 sm:p-8">
-            <h3 className="font-display text-lg font-bold text-foreground">
+          <div className="rounded-3xl border border-border bg-secondary/20 p-4 sm:p-8">
+            <h3 className="font-display text-sm font-bold text-foreground">
               {lang === "en" ? "Distribution of what you receive" : "Distribución de lo que recibes"}
             </h3>
-            <div className="mt-6 space-y-6">
+            <div className="mt-4 space-y-4">
               {/* Zeepod Bar */}
               <div>
-                <div className="flex items-center justify-between text-xs font-bold text-foreground mb-2">
+                <div className="flex items-center justify-between text-[11px] font-bold text-foreground mb-1.5">
                   <span className="flex items-center gap-1 text-emerald-500">
-                    <ShieldCheck className="size-4 shrink-0" /> {t.zeepodLabel}
+                    <ShieldCheck className="size-3.5 shrink-0" /> {t.zeepodLabel}
                   </span>
                   <span>
                     {toSymbol} {results.zeepod.toLocaleString()}
                   </span>
                 </div>
-                <div className="h-5.5 w-full overflow-hidden rounded-full bg-secondary">
-                  <div className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 transition-all duration-500" style={{ width: "100%" }} />
+                <div className="h-4 w-full overflow-hidden rounded-full bg-secondary">
+                  <div className="h-full rounded-full bg-linear-to-r from-emerald-500 to-teal-400 transition-all duration-500" style={{ width: "100%" }} />
                 </div>
               </div>
 
               {/* Banks Bar */}
               <div>
-                <div className="flex items-center justify-between text-xs font-bold text-muted-foreground mb-2">
+                <div className="flex items-center justify-between text-[11px] font-bold text-muted-foreground mb-1.5">
                   <span>{t.banksLabel}</span>
                   <span>
                     {toSymbol} {results.bank.toLocaleString()}
                   </span>
                 </div>
-                <div className="h-5.5 w-full overflow-hidden rounded-full bg-secondary">
-                  <div className="h-full rounded-full bg-gradient-to-r from-amber-500 to-yellow-400 transition-all duration-500" style={{ width: "92%" }} />
+                <div className="h-4 w-full overflow-hidden rounded-full bg-secondary">
+                  <div className="h-full rounded-full bg-linear-to-r from-amber-500 to-yellow-400 transition-all duration-500" style={{ width: "92%" }} />
                 </div>
               </div>
 
               {/* Airport Bar */}
               <div>
-                <div className="flex items-center justify-between text-xs font-bold text-muted-foreground mb-2">
+                <div className="flex items-center justify-between text-[11px] font-bold text-muted-foreground mb-1.5">
                   <span>{t.airportLabel}</span>
                   <span>
                     {toSymbol} {results.airport.toLocaleString()}
                   </span>
                 </div>
-                <div className="h-5.5 w-full overflow-hidden rounded-full bg-secondary">
-                  <div className="h-full rounded-full bg-gradient-to-r from-rose-500 to-pink-500 transition-all duration-500" style={{ width: "85%" }} />
+                <div className="h-4 w-full overflow-hidden rounded-full bg-secondary">
+                  <div className="h-full rounded-full bg-linear-to-r from-rose-500 to-pink-500 transition-all duration-500" style={{ width: "85%" }} />
                 </div>
               </div>
             </div>

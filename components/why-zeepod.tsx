@@ -40,7 +40,7 @@ export function WhyZeepod({ lang = "es" }: { lang?: LangType }) {
             <ul className="mt-6 space-y-4">
               {t.problems.map((p) => (
                 <li key={p} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-zeep-pink/10 text-zeep-pink">
+                  <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-zeep-pink-10 text-zeep-pink">
                     <X className="size-4" />
                   </span>
                   <span className="text-pretty leading-relaxed text-muted-foreground">{p}</span>

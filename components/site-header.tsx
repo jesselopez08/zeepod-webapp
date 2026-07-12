@@ -65,7 +65,7 @@ export function SiteHeader({ lang = "es" }: { lang?: LangType }) {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex items-center justify-center rounded-md p-2 text-foreground md:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-foreground md:hidden cursor-pointer"
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
         >

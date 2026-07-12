@@ -16,7 +16,7 @@ export function PresentationVideo({ lang = "es" }: PresentationVideoProps) {
   return (
     <section className="mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:py-20">
       <div className="mx-auto max-w-2xl text-center mb-10">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-zeep-purple/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-zeep-purple">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-zeep-purple-15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-zeep-purple">
           <Play className="size-3 fill-current" /> {t.badge}
         </span>
         <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">

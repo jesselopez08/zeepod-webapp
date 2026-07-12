@@ -92,7 +92,7 @@ export function WaitlistForm({ dark = false, lang = "es" }: WaitlistFormProps) {
         <button
           type="submit"
           disabled={status === "loading"}
-          className={`px-6 py-3 rounded-full text-sm font-bold shadow-md transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 ${
+          className={`px-6 py-3 rounded-full text-sm font-bold shadow-md transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 cursor-pointer ${
             dark
               ? "bg-white text-zeep-purple hover:bg-neutral-100"
               : "bg-zeep-gradient text-white hover:opacity-95"
